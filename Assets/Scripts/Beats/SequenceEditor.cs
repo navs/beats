@@ -52,6 +52,7 @@ namespace Beats
                 {
                     LoadFromObject();
                 }
+                EditorGUILayout.LabelField("Sequence Object", GUILayout.Width(120));
                 serializationObj = (GameObject)EditorGUILayout.ObjectField("", serializationObj, typeof(GameObject), true);
             }
             EditorGUILayout.EndHorizontal();

@@ -113,7 +113,7 @@ namespace Beats
 
             sp.Muzik = (AudioSource)EditorGUILayout.ObjectField("Muzik", sp.Muzik, typeof(AudioSource), true);
             sp.BeatSeq = (BeatSequence)EditorGUILayout.ObjectField("Beat Sequence", sp.BeatSeq, typeof(BeatSequence), true);
-            sp.EnemyActorPrefab = (EnemyActor)EditorGUILayout.ObjectField("Beat Sequence", sp.EnemyActorPrefab, typeof(EnemyActor), true);
+            sp.EnemyActorPrefab = (EnemyActor)EditorGUILayout.ObjectField("Enemy Actor", sp.EnemyActorPrefab, typeof(EnemyActor), true);
 
             if (Application.isPlaying)
             {
