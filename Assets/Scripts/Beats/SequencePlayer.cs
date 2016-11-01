@@ -73,25 +73,23 @@ namespace Beats
         {
             var preset = BeatSeq.Presets[beat.PresetId];
             Vector3 pos = new Vector3(preset.Distance, 0, 0);
-            Vector3 angle = new Vector3(0, -90, 0);
+            Vector3 lookAtTarget = Vector3.zero;
             
-            if ((beat.Dir & BeatSequence.BeatDirection.Left) != 0)
-            {
-                CreateEnemyActor(-pos, -angle, preset.Duration, preset.Speed);
-            }
-            if ((beat.Dir & BeatSequence.BeatDirection.Right) != 0)
-            {
-                CreateEnemyActor(pos, angle, preset.Duration, preset.Speed);
-            }
+            CreateEnemyActor(preset.Distance, preset.Angle, lookAtTarget, preset.Duration, preset.Speed);
         }
 
-        private void CreateEnemyActor(Vector3 pos, Vector3 angle, float lifetime, float speed)
+        private void CreateEnemyActor(float distance, float angle, Vector3 lookAtTarget, float lifetime, float speed)
         {
             EnemyActor actor = Instantiate<EnemyActor>(EnemyActorPrefab);
             if (actor != null)
             {
-                actor.transform.localPosition = pos;
-                actor.transform.localEulerAngles = angle;
+                actor.transform.localPosition = new Vector3(
+                    distance * Mathf.Cos(angle * Mathf.PI / 180.0f),
+                    0,
+                    distance * Mathf.Sin(angle * Mathf.PI / 180.0f));
+                //actor.transform.localEulerAngles = angle;
+                //actor.transform.rotation = Quaternion.EulerAngles(0, -angle, 0);
+                actor.transform.LookAt(lookAtTarget);
                 actor.Lifetime = lifetime;
                 actor.Speed = speed;
             }

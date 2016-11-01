@@ -16,9 +16,10 @@ namespace Beats
         [System.Serializable]
         public class Preset
         {
-            public float Distance = 3;
-            public float Duration = 1;
-            public float Speed = 3;
+            public float Distance = 10;
+            public float Duration = 2;
+            public float Speed = 4.5f;
+            public float Angle = 0;
         }
 
         [System.Serializable]

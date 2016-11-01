@@ -62,15 +62,19 @@ namespace Beats
 
                         if (BeatHandler != null)
                         {
-                            if (GUILayout.Button("Left", GUILayout.Width(60)))
-                            {
-                                BeatHandler(BeatSequence.BeatDirection.Left, i);
-                            }
-                            if (GUILayout.Button("Both", GUILayout.Width(60)))
-                            {
-                                BeatHandler(BeatSequence.BeatDirection.Both, i);
-                            }
-                            if (GUILayout.Button("Right", GUILayout.Width(60)))
+                            //if (GUILayout.Button("Left", GUILayout.Width(60)))
+                            //{
+                            //    BeatHandler(BeatSequence.BeatDirection.Left, i);
+                            //}
+                            //if (GUILayout.Button("Both", GUILayout.Width(60)))
+                            //{
+                            //    BeatHandler(BeatSequence.BeatDirection.Both, i);
+                            //}
+                            //if (GUILayout.Button("Right", GUILayout.Width(60)))
+                            //{
+                            //    BeatHandler(BeatSequence.BeatDirection.Right, i);
+                            //}
+                            if (GUILayout.Button("Beat", GUILayout.Width(60)))
                             {
                                 BeatHandler(BeatSequence.BeatDirection.Right, i);
                             }
@@ -82,6 +86,8 @@ namespace Beats
                         bs.Presets[i].Duration = EditorGUILayout.FloatField("", bs.Presets[i].Duration, GUILayout.Width(60));
                         EditorGUILayout.LabelField("Speed", GUILayout.Width(60));
                         bs.Presets[i].Speed = EditorGUILayout.FloatField("", bs.Presets[i].Speed, GUILayout.Width(60));
+                        EditorGUILayout.LabelField("Angle", GUILayout.Width(60));
+                        bs.Presets[i].Angle = EditorGUILayout.FloatField("", bs.Presets[i].Angle, GUILayout.Width(60));
                     }
                     EditorGUILayout.EndHorizontal();
                 }
